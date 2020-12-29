@@ -17,6 +17,9 @@ Route::get('/', function(){
     return ["Welcome to my api!"];
 });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Employees
+Route::get('/employees', 'EmployeesController@index');
+Route::get('/employees/{id}', 'EmployeesController@show');
+Route::post('/employees', 'EmployeesController@store');
+Route::put('/employees', 'EmployeesController@update');
+Route::delete('/employees/{id}', 'EmployeesController@destroy');
